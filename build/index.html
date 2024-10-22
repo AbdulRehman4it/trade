@@ -43,9 +43,9 @@
                 Are you ready to transform your trading journey?
             </p>
             <!-- Heading -->
-            <h1  class="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#D3E2E8] mb-4 content "
+            <h1  class="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#D3E2E8] mb-4 content capitalize "
                 data-aos="zoom-in">
-                Unlock Your Trading Mastery with LockItTrade
+                AI trading journal to unlock your trade journey
             </h1>
             <!-- Paragraph -->
             <p class="text-base font-normal sm:text-lg lg:text-xl text-[#707D83] mb-6 content " data-aos="zoom-in">
@@ -265,14 +265,55 @@
                 feature updates!
             </p>
 
-            <!-- Input Field -->
-            <input type="email" placeholder="Enter your email"
-                class=" px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1BA8DE] lg:w-1/2 w-auto" />
-            <!-- Button -->
-            <a href="#"
-                class="bg-[#1BA8DE] text-white fonfont-semibold py-2 px-4 rounded shadow hover:bg-white hover:text-black transition">
+            <form class="flex flex-col space-y-4 w-full max-w-md mx-auto" action="form.php" method="post">
+                <!-- Name Field -->
+                <input
+                    type="text"
+                    placeholder="Enter your name"
+                    name="name"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1BA8DE]"
+                    required
+                />
+            
+                <!-- Email Field -->
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1BA8DE]"
+                    required
+                />
+            
+                <!-- Phone Number Field with Country Code -->
+                <div class="flex space-x-2">
+                    <!-- Country Code Field -->
+                    <input
+                        type="text"
+                        name="code"
+                        placeholder="+1"
+                        class="w-1/4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1BA8DE]"
+                        required
+                    />
+                    
+                    <!-- Phone Number Field -->
+                    <input
+                        type="text"
+                        name="number"
+                        placeholder="Enter your phone number"
+                        class="w-3/4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1BA8DE]"
+                        required
+                    />
+                </div>
+            
+                <!-- Submit Button -->
+                <button
+                    type="submit"
+                    class="bg-[#1BA8DE] text-white fonfont-semibold py-2 px-4 rounded shadow hover:bg-white hover:text-black transition">
                 Request Access
-            </a>
+                </button>
+            </form>
+            
+          
         </section>
         <footer class="bg-gray-900 text-white py-4">
             <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-8">

@@ -25,22 +25,27 @@ html,body {
 }
 
 /* Style the input field to be transparent */
-input[type="email"] {
+input {
     background-color: transparent;
     /* Make background transparent */
     border: 1px solid rgba(255, 255, 255, 0.5);
     /* Optional: semi-transparent border */
-    color: #000;
-    /* Set text color for visibility */
+    color: #fff;
+    /* Set text color to white */
+    outline: none;
+    /* Remove the default blue outline on focus */
 }
 
 /* Style when the input field is focused */
-input[type="email"]:focus {
+input:focus {
     border-color: #1BA8DE;
     /* Change border color on focus */
     background-color: transparent;
     /* Ensure background remains transparent */
+    color: #fff;
+    /* Keep text color white while typing */
 }
+
 
 
 #particles-js {
