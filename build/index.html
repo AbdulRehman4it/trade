@@ -25,7 +25,7 @@
         </div>
         <!-- Button Section -->
         <div>
-            <a href="#"
+            <a href="#form"
                 class="bg-[#1BA8DE] text-white fonfont-semibold py-2 px-4 rounded shadow hover:bg-white hover:text-black transition">
                 Request Access
             </a>
@@ -75,7 +75,7 @@
                     trades. Whether you’re a beginner or an experienced trader, LockItTrade provides the insights and
                     tools necessary to refine your strategies and unlock your full potential in the market.
                 </p>
-                <button
+                <button onclick="scrollToForm()"
                     class="bg-[#1BA8DE] text-white font-semibold py-2 px-4 rounded shadow hover:bg-white hover:text-black transition">
                     Request Access
                 </button>
@@ -246,7 +246,7 @@
       
          
 
-        <section
+        <section id="form"
             class="py-12 text-center flex flex-col justify-center items-center space-y-6 lg:mx-24 md:mx-12 sm:mx-6 content lg:mt-16 md:mt-8 sm:mt-0 h-auto md:h-auto lg:h-screen"
             data-aos="fade-up">
             <!-- Top Paragraph -->
@@ -330,9 +330,11 @@
             </div>
         </footer>
     </main>
-
-
-
+<script>
+    function scrollToForm() {
+        document.getElementById("form").scrollIntoView({ behavior: "smooth" });
+      }
+</script>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
