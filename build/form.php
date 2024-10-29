@@ -1,12 +1,14 @@
 <?php
-require './vendor/autoload.php';  // If using Composer
-// Or include manually:
-require './vendor/phpmailer/src/PHPMailer.php';
-require './vendor/phpmailer/src/SMTP.php';
-require './vendor/phpmailer/src/Exception.php';
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting(E_ALL);
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+require 'PHPMailer-master/src/Exception.php';
+require 'PHPMailer-master/src/PHPMailer.php';
+require 'PHPMailer-master/src/SMTP.php';
+
 
 $fullname = $_POST["name"];
 $email = $_POST["email"];
