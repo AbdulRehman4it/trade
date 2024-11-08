@@ -263,6 +263,7 @@
             <form class="flex flex-col space-y-4 w-full max-w-md mx-auto" action="form.php" method="post">
                 <!-- Name Field -->
                 <input
+                required
                     type="text"
                     placeholder="Enter your name"
                     name="name"
@@ -272,6 +273,7 @@
             
                 <!-- Email Field -->
                 <input
+                required
                     type="email"
                     name="email"
                     placeholder="Enter your email"
@@ -283,6 +285,7 @@
                 <div class="flex space-x-2">
                     <!-- Country Code Field -->
                     <input
+                    required
                         type="text"
                         name="code"
                         placeholder="+1"
@@ -292,6 +295,7 @@
                     
                     <!-- Phone Number Field -->
                     <input
+                    required
                         type="text"
                         name="number"
                         placeholder="Enter your phone number"
@@ -299,7 +303,8 @@
                         required
                     />
                 </div>
-            
+             <!-- reCAPTCHA Widget -->
+        <div class="g-recaptcha" data-sitekey="6LdWn3gqAAAAAJRgy-Fxn4pSpPWihNIb1C2H2U7d"></div>
                 <!-- Submit Button -->
                 <button
                     type="submit"
@@ -308,7 +313,37 @@
                 </button>
             </form>
             
-          
+            <?php
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $secretKey = '6LdWn3gqAAAAAG4JWnMHypNBUOFF8SOjZENCM2vm';
+                $recaptchaResponse = $_POST['g-recaptcha-response'];
+            
+                // Check if reCAPTCHA response is set
+                if (!empty($recaptchaResponse)) {
+                    // Make request to Google's reCAPTCHA API
+                    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$recaptchaResponse");
+                    $responseKeys = json_decode($response, true);
+            
+                    // Check reCAPTCHA success
+                    if ($responseKeys["success"]) {
+                        // reCAPTCHA passed, process form data
+                        $name = $_POST['name'];
+                        $email = $_POST['email'];
+                        $code = $_POST['code'];
+                        $number = $_POST['number'];
+            
+                        // Your form processing logic here
+                        echo "Form submitted successfully!";
+                    } else {
+                        // reCAPTCHA failed
+                        echo "reCAPTCHA verification failed. Please try again.";
+                    }
+                } else {
+                    echo "Please complete the reCAPTCHA verification.";
+                }
+            }
+            ?>
+            
         </section>
         <footer class="bg-gray-900 text-white py-4">
             <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-8">
@@ -441,7 +476,7 @@ function adjustParticlesHeight() {
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 </html>
