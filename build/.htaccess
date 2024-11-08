@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Redirect to form.php when accessing the root URL
+RewriteRule ^$ form.php [L]
+
+# Hide .php extensions for all files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.+)$ $1.php [L]
+
+# Prevent direct access to form.php by rewriting URL
+RewriteRule ^request-access$ form.php [L]
