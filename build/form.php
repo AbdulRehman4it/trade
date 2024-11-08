@@ -126,7 +126,7 @@ try {
         // Function to close the alert and redirect
         function closeAlert() {
             document.getElementById("customAlert").style.display = "none";
-            document.location.href = "./index.html";
+            document.location.href = "./index.php";
         }
     </script>
     </body>
@@ -158,7 +158,7 @@ try {
         function closeErrorAlert() {
             document.getElementById("errorAlert").style.display = "none";
              
-            document.location.href = "./index.html";
+            document.location.href = "./index.php";
         }
     </script>
     </body>

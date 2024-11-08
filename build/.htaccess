@@ -1,12 +1,15 @@
 RewriteEngine On
 
-# Redirect to form.php when accessing the root URL
-RewriteRule ^$ form.php [L]
+# Redirect root URL to /build/index.php
+RewriteRule ^$ /build/index.php [L]
 
-# Hide .php extensions for all files
+# Hide the /build folder and allow access to files inside it without showing path
+RewriteCond %{REQUEST_URI} !^/build/
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^(.+)$ $1.php [L]
+RewriteRule ^(.*)$ /build/$1 [L]
 
-# Prevent direct access to form.php by rewriting URL
-RewriteRule ^request-access$ form.php [L]
+# If the specific file doesn't exist, route everything to /build/index.php
+RewriteCond %{REQUEST_URI} !^/build/index\.php$
+RewriteRule ^(.*)$ /build/index.php [L]
+
