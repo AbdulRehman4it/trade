@@ -1,15 +1,15 @@
 RewriteEngine On
 
-# Redirect root URL to /build/index.php
+# Redirect the root domain to /build/index.php
 RewriteRule ^$ /build/index.php [L]
 
-# Hide the /build folder and allow access to files inside it without showing path
+# Only rewrite .php and .html files
 RewriteCond %{REQUEST_URI} !^/build/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /build/$1 [L]
+RewriteRule ^(.*)\.(php|html)$ /build/$1.$2 [L]
 
-# If the specific file doesn't exist, route everything to /build/index.php
+# Redirect any non-matching request to /build/index.php (for pages without extensions)
 RewriteCond %{REQUEST_URI} !^/build/index\.php$
 RewriteRule ^(.*)$ /build/index.php [L]
 
